@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+// import store from './store/configureStore'
 import swal from 'sweetalert'
 import Hand from './components/Hand'
 import Results from './components/Results'
@@ -10,13 +12,13 @@ class App extends Component {
     this.getHand = this.getHand.bind(this)
     this.sortHand = this.sortHand.bind(this)
     this.setShowCustomHand = this.setShowCustomHand.bind(this)
+    this.setShowResults = this.setShowResults.bind(this)
     this.onCustomHandChange = this.onCustomHandChange.bind(this)
     this.state = {
       'deck': [],
       'hand': [],
       'customHand': [],
-      'cardsLeft': 52,
-      'showCustomHand': false
+      'cardsLeft': 52
     }
   }
 
@@ -79,7 +81,8 @@ class App extends Component {
         .then(result => {
           this.setState({
             deck_id: result.deck_id,
-            cardsLeft: result.remaining
+            cardsLeft: result.remaining,
+            showResults: false
           })
           url = 'https://deckofcardsapi.com/api/deck/' + result.deck_id + '/draw/?count=5'
         })
@@ -91,7 +94,8 @@ class App extends Component {
             .then(result => {
               this.setState({
                 hand: result.cards,
-                cardsLeft: result.remaining
+                cardsLeft: result.remaining,
+                showResults: false
               })
             })
         })
@@ -104,7 +108,8 @@ class App extends Component {
         .then(result => {
           this.setState({
             hand: result.cards,
-            cardsLeft: result.remaining
+            cardsLeft: result.remaining,
+            showResults: false
           })
         })
     }
@@ -145,10 +150,20 @@ class App extends Component {
      *
      */
   setShowCustomHand() {
-    let showCustomHand = this.state.showCustomHand
-    this.setState({ showCustomHand: !showCustomHand })
+    this.props.dispatch({ type: 'TOGGLE_SHOW_CUSTOM_HAND' })
+    //let showCustomHand = this.state.showCustomHand
+    //this.setState({ showCustomHand: !showCustomHand })
   }
 
+  /**
+     * Toggles the value of the 'showResults' state value
+     *
+     */
+  setShowResults() {
+    this.props.dispatch({ type: 'TOGGLE_SHOW_RESULTS' })
+    //let showResults = this.state.showResults
+    //this.setState({ showResults: !showResults })
+  }
   /**
      * Generates the correct card code based on value and suit
      *
@@ -257,9 +272,14 @@ class App extends Component {
   render() {
 
     const cardsLeft = this.state.cardsLeft
-    const showCustomHand = this.state.showCustomHand
+    //const showCustomHand = this.state.showCustomHand
     const setShowCustomHand = this.setShowCustomHand
+    //const showResults = this.state.showResults
+    const setShowResults = this.setShowResults
     const onCustomHandChange = this.onCustomHandChange
+
+    // ppppppp
+    console.log('ppppppppppppppppp111111111111111 props ', this.props)
 
     let cards
     if (this.state.hand) {
@@ -284,10 +304,15 @@ class App extends Component {
             <Hand getHand={this.getHand} sortHand={this.sortHand} cardsLeft={cardsLeft} cards={cards} buttonText={buttonText} />
           </React.Fragment>
         </div>
-        <CustomHand cards={cards} showCustomHand={showCustomHand} setShowCustomHand={setShowCustomHand} onCustomHandChange={onCustomHandChange} />
-        <Results cards={cards} />
+        <CustomHand cards={cards} setShowCustomHand={setShowCustomHand} onCustomHandChange={onCustomHandChange} />
+        <Results cards={cards} setShowResults={setShowResults} />
       </div>
     )
   }
 }
-export default App
+export default connect((state, props) => {
+  return {
+    showResults: state.showResults,
+    showCustomHand: state.showCustomHand
+  }
+})(App)

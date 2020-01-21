@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import { getPairs, getFifteenSums, getFlushes, getNibs, getRuns } from '.././cribbage.js'
 const uuid = require('uuid/v4')
 
 class Results extends Component {
   constructor(props) {
     super(props)
-    this.state = { showResults: false }
+    //this.state = { showResults: false }
 
     // all 10 combinations that a run of three can have
     this.patternsOfThree = [
@@ -87,9 +88,9 @@ class Results extends Component {
   render() {
     let pairResults = []
     const { cards } = this.props
+    const showResults = this.props.showResults
 
     let displayPairs, displaySums, displayRuns, displayFlush, displayNibs
-    let showResults = this.state.showResults
     let sumsResult, flushResult, runsResult, nibsResult
     let fullHand = [...cards]
     let totalScore = 0
@@ -105,8 +106,10 @@ class Results extends Component {
 
     }
 
+    //onsole.log('DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ', store)
+
     const showResultsCheckbox = <div className='show-results'>
-      <label className='cribbage-checkbox'><input type='checkbox' inline='true' checked={showResults} onChange={() => { this.setState({ showResults: !showResults }) }} />{showResults ? 'Hide results' : 'Show results'}</label>
+      <label className='cribbage-checkbox'><input type='checkbox' inline='true' checked={showResults} onChange={this.props.setShowResults} />{showResults ? 'Hide results' : 'Show results'}</label>
     </div>
 
     // Only show results if the full hand has been dealt
@@ -213,4 +216,11 @@ Results.propTypes = {
   })
 }
 
-export default Results
+export default connect((state, props) => {
+  return {
+    showResults: state.showResults,
+    showCustomHand: state.showCustomHand
+  }
+})(Results)
+
+//export default Results

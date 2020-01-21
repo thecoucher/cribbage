@@ -1,9 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 import '.././index.css'
 
 // Component Hand
 const CustomHand = (props) => {
-
   const handleSubmit = (event) => {
     event.preventDefault()
     props.setShowCustomHand(false)
@@ -16,7 +17,7 @@ const CustomHand = (props) => {
 
   const showCardOptions = (name, value) => {
     return (
-      <div className='the-cards'>
+      <div>
         <select className='custom-select' value={value} name={name} onChange={handleChange}>
           <option value='ACE'>Ace</option>
           <option value='2'>Two</option>
@@ -88,4 +89,10 @@ const CustomHand = (props) => {
     return (null)
   }
 }
-export default CustomHand
+//export default CustomHand
+export default connect((state, props) => {
+  return {
+    showResults: state.showResults,
+    showCustomHand: state.showCustomHand
+  }
+})(CustomHand)
