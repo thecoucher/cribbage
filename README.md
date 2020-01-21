@@ -2,7 +2,7 @@
 
 Test your ability to add up the points of a random cribbage hand and then compare to the actual number of points.
 
-### [View the demo](https://thecoucher.github.io/cribbage1/)
+### [View the demo](https://thecoucher.github.io/cribbage/)
 
 ## Purpose
 
