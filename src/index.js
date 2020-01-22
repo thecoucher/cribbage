@@ -5,8 +5,8 @@ import { Provider } from 'react-redux'
 import App from './App'
 import './index.css'
 
-console.log('fred fred fred fred fred fred fred fred fred fred fred fred fred provider', Provider)
-console.log('fred fred fred fred fred fred fred fred fred fred fred fred fred store ', store)
+// console.log('fred fred fred fred fred fred fred fred fred fred fred fred fred provider', Provider)
+// console.log('fred fred fred fred fred fred fred fred fred fred fred fred fred store ', store)
 
 // const mapStateToProps = state => {
 //   console.log(state);

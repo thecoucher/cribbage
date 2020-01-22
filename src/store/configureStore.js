@@ -1,4 +1,6 @@
-import { createStore } from 'redux'
+import { applyMiddleware, createStore } from 'redux'
+import { createLogger } from 'redux-logger'
+import thunk from 'redux-thunk'
 
 var defaultState = {
   'showResults': false,
@@ -23,6 +25,15 @@ function the_reducer(state = defaultState, action) {
   }
 }
 
-var store = createStore(the_reducer)
+// create our own logger with the setting we want
+var logger = createLogger({
+  collapsed: true
+})
+
+var store = createStore(
+  the_reducer,
+  // Note: logger must be the last middleware to be applied
+  applyMiddleware(thunk, logger)
+)
 
 export default store

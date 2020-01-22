@@ -279,7 +279,7 @@ class App extends Component {
     const onCustomHandChange = this.onCustomHandChange
 
     // ppppppp
-    console.log('ppppppppppppppppp111111111111111 props ', this.props)
+    //console.log('ppppppppppppppppp111111111111111 props ', this.props)
 
     let cards
     if (this.state.hand) {
