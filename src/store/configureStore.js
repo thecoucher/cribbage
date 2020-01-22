@@ -4,7 +4,9 @@ import thunk from 'redux-thunk'
 
 var defaultState = {
   'showResults': false,
-  'showCustomHand': false
+  'showCustomHand': false,
+  'hand': [],
+  'cardsLeft': 0
 }
 
 function the_reducer(state = defaultState, action) {
@@ -19,6 +21,20 @@ function the_reducer(state = defaultState, action) {
       return {
         ...state,
         showCustomHand: !state.showCustomHand,
+      }
+    case 'GET_NEW_DECK':
+      return {
+        ...state,
+        deck_id: action.data.deck_id,
+        cardsLeft: action.data.cardsLeft,
+        showResults: action.data.showResults
+      }
+    case 'GET_NEW_CARDS':
+      return {
+        ...state,
+        hand: action.data.hand,
+        cardsLeft: action.data.cardsLeft,
+        showResults: action.data.showResults
       }
     default:
       return state

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import store from './store/configureStore'
+import store from './store/configureStore'
+import * as actions from './actions/actions'
 import swal from 'sweetalert'
 import Hand from './components/Hand'
 import Results from './components/Results'
@@ -15,10 +16,10 @@ class App extends Component {
     this.setShowResults = this.setShowResults.bind(this)
     this.onCustomHandChange = this.onCustomHandChange.bind(this)
     this.state = {
-      'deck': [],
-      'hand': [],
-      'customHand': [],
-      'cardsLeft': 52
+      //'deck': [],
+      //'hand': [],
+      //'customHand': [],
+      //'cardsLeft': 52
     }
   }
 
@@ -32,10 +33,8 @@ class App extends Component {
         response.json()
       )
       .then(result => {
-        this.setState({
-          deck_id: result.deck_id,
-          cardsLeft: result.remaining
-        })
+        this.props.dispatch(actions.getNewDeck(result.deck_id, result.remaining, false)
+        )
       })
   }
 
@@ -71,7 +70,7 @@ class App extends Component {
   getHand() {
     // make sure there are enough cards left in the deck
     let url
-    if (this.state.cardsLeft < 5) {
+    if (this.props.cardsLeft < 5) {
       swal('New deck', 'There are not enough cards left in the deck. Now using new deck', 'info')
       url = 'https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1'
       fetch(url)
@@ -79,11 +78,7 @@ class App extends Component {
           response.json()
         )
         .then(result => {
-          this.setState({
-            deck_id: result.deck_id,
-            cardsLeft: result.remaining,
-            showResults: false
-          })
+          this.props.dispatch(actions.getNewDeck(result.deck_id, result.remaining, false))
           url = 'https://deckofcardsapi.com/api/deck/' + result.deck_id + '/draw/?count=5'
         })
         .then(() => {
@@ -92,25 +87,17 @@ class App extends Component {
               response.json()
             )
             .then(result => {
-              this.setState({
-                hand: result.cards,
-                cardsLeft: result.remaining,
-                showResults: false
-              })
+              this.props.dispatch(actions.getNewCards(result.cards, result.remaining, false))
             })
         })
     } else {
-      url = 'https://deckofcardsapi.com/api/deck/' + this.state.deck_id + '/draw/?count=5'
+      url = 'https://deckofcardsapi.com/api/deck/' + store.getState().deck_id + '/draw/?count=5'
       fetch(url)
         .then(response =>
           response.json()
         )
         .then(result => {
-          this.setState({
-            hand: result.cards,
-            cardsLeft: result.remaining,
-            showResults: false
-          })
+          this.props.dispatch(actions.getNewCards(result.cards, result.remaining, false))
         })
     }
   }
@@ -138,7 +125,7 @@ class App extends Component {
      *
      */
   sortHand() {
-    let sortedHand = [...this.state.hand]
+    let sortedHand = [...this.props.hand]
     sortedHand.sort(this.compareCardValues)
     this.setState({
       hand: sortedHand
@@ -150,9 +137,7 @@ class App extends Component {
      *
      */
   setShowCustomHand() {
-    this.props.dispatch({ type: 'TOGGLE_SHOW_CUSTOM_HAND' })
-    //let showCustomHand = this.state.showCustomHand
-    //this.setState({ showCustomHand: !showCustomHand })
+    this.props.dispatch(actions.toggleShowCustomHand())
   }
 
   /**
@@ -160,9 +145,7 @@ class App extends Component {
      *
      */
   setShowResults() {
-    this.props.dispatch({ type: 'TOGGLE_SHOW_RESULTS' })
-    //let showResults = this.state.showResults
-    //this.setState({ showResults: !showResults })
+    this.props.dispatch(actions.toggleShowResults())
   }
   /**
      * Generates the correct card code based on value and suit
@@ -185,18 +168,19 @@ class App extends Component {
      * @return {boolean} true if the card already exists in the hand, false if not.
      */
   alreadyExists(position, value, type) {
+    const hand = this.props.hand
     let code
     if (type === 'card') {
-      const suit = this.state.hand[position].suit
+      const suit = hand[position].suit
       code = this.getCode(value, suit)
     }
     // suit part
     if (type === 'suit') {
-      const val = this.state.hand[position].value
+      const val = hand[position].value
       code = this.getCode(val, value)
     }
-    for (let i = 0; i < this.state.hand.length; i++) {
-      if (this.state.hand[i].code === code) {
+    for (let i = 0; i < hand.length; i++) {
+      if (hand[i].code === code) {
         return true
       }
     }
@@ -246,7 +230,7 @@ class App extends Component {
   onCustomHandChange(name, value) {
     // can determine the position in the hand array from he last character of the name
     let position = name.charAt(name.length - 1) - 1
-    let hand = [...this.state.hand]
+    let hand = [...this.props.hand]
     let card = hand[position]
     let newCard
     let toChange = name.slice(0, 4)   // 'suit' or 'card'
@@ -271,19 +255,15 @@ class App extends Component {
 
   render() {
 
-    const cardsLeft = this.state.cardsLeft
-    //const showCustomHand = this.state.showCustomHand
+    const cardsLeft = this.props.cardsLeft
     const setShowCustomHand = this.setShowCustomHand
-    //const showResults = this.state.showResults
     const setShowResults = this.setShowResults
     const onCustomHandChange = this.onCustomHandChange
 
-    // ppppppp
-    //console.log('ppppppppppppppppp111111111111111 props ', this.props)
-
+    const hand = this.props.hand
     let cards
-    if (this.state.hand) {
-      cards = this.state.hand
+    if (hand) {
+      cards = hand
     } else {
       cards = []
     }
@@ -313,6 +293,9 @@ class App extends Component {
 export default connect((state, props) => {
   return {
     showResults: state.showResults,
-    showCustomHand: state.showCustomHand
+    showCustomHand: state.showCustomHand,
+    hand: state.hand,
+    cardsLeft: state.cardsLeft,
+    deck_id: state.deck_id
   }
 })(App)

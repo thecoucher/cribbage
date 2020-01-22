@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import * as actions from '.././actions/actions'
 import { getPairs, getFifteenSums, getFlushes, getNibs, getRuns } from '.././cribbage.js'
 const uuid = require('uuid/v4')
 
 class Results extends Component {
   constructor(props) {
     super(props)
-    //this.state = { showResults: false }
 
     // all 10 combinations that a run of three can have
     this.patternsOfThree = [
@@ -103,10 +103,7 @@ class Results extends Component {
       nibsResult = getNibs(cards)
       // add all the results of the sums
       totalScore = this.tallyTheScores(pairResults, sumsResult, runsResult, flushResult, nibsResult)
-
     }
-
-    //onsole.log('DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ', store)
 
     const showResultsCheckbox = <div className='show-results'>
       <label className='cribbage-checkbox'><input type='checkbox' inline='true' checked={showResults} onChange={this.props.setShowResults} />{showResults ? 'Hide results' : 'Show results'}</label>
