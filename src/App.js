@@ -127,9 +127,7 @@ class App extends Component {
   sortHand() {
     let sortedHand = [...this.props.hand]
     sortedHand.sort(this.compareCardValues)
-    this.setState({
-      hand: sortedHand
-    })
+    this.props.dispatch(actions.sortHand(sortedHand))
   }
 
   /**
@@ -250,7 +248,7 @@ class App extends Component {
       }
     }
     hand[position] = newCard
-    this.setState({ hand })
+    this.props.dispatch(actions.changeHand(hand))
   }
 
   render() {

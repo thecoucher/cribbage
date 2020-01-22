@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import * as actions from '.././actions/actions'
 import { getPairs, getFifteenSums, getFlushes, getNibs, getRuns } from '.././cribbage.js'
 const uuid = require('uuid/v4')
 

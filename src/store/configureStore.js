@@ -36,6 +36,16 @@ function the_reducer(state = defaultState, action) {
         cardsLeft: action.data.cardsLeft,
         showResults: action.data.showResults
       }
+    case 'SORT_HAND':
+      return {
+        ...state,
+        hand: action.data.sortedHand
+      }
+    case 'CHANGE_HAND':
+      return {
+        ...state,
+        hand: action.data.newHand
+      }
     default:
       return state
   }
