@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import store from './store/configureStore'
 import * as actions from './actions/actions'
 import swal from 'sweetalert'
 import Hand from './components/Hand'
@@ -15,12 +14,6 @@ class App extends Component {
     this.setShowCustomHand = this.setShowCustomHand.bind(this)
     this.setShowResults = this.setShowResults.bind(this)
     this.onCustomHandChange = this.onCustomHandChange.bind(this)
-    this.state = {
-      //'deck': [],
-      //'hand': [],
-      //'customHand': [],
-      //'cardsLeft': 52
-    }
   }
 
   componentWillUnmount() {
@@ -91,7 +84,7 @@ class App extends Component {
             })
         })
     } else {
-      url = 'https://deckofcardsapi.com/api/deck/' + store.getState().deck_id + '/draw/?count=5'
+      url = 'https://deckofcardsapi.com/api/deck/' + this.props.deck_id + '/draw/?count=5'
       fetch(url)
         .then(response =>
           response.json()
@@ -289,11 +282,12 @@ class App extends Component {
   }
 }
 export default connect((state, props) => {
+  console.log('ppppppppppppppccccccccccccccccccccc ', state)
   return {
-    showResults: state.showResults,
-    showCustomHand: state.showCustomHand,
-    hand: state.hand,
-    cardsLeft: state.cardsLeft,
-    deck_id: state.deck_id
+    showResults: state.deck.showResults,
+    showCustomHand: state.deck.showCustomHand,
+    hand: state.deck.hand,
+    cardsLeft: state.deck.cardsLeft,
+    deck_id: state.deck.deck_id
   }
 })(App)

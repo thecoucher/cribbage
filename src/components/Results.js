@@ -33,7 +33,7 @@ class Results extends Component {
     for (var i = 0; i < cardsToHighlight.length; i++) {
       const elem = document.getElementById(cardsToHighlight[i].code)
       if (elem) {
-        elem.style.border = '3px solid blue'
+        elem.style.border = '3px solid #99FFFF'
         elem.style['border-radius'] = '8px'
       }
     }
@@ -214,8 +214,8 @@ Results.propTypes = {
 
 export default connect((state, props) => {
   return {
-    showResults: state.showResults,
-    showCustomHand: state.showCustomHand
+    showResults: state.deck.showResults,
+    showCustomHand: state.deck.showCustomHand
   }
 })(Results)
 

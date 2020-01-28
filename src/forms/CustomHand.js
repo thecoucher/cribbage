@@ -1,8 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import '.././index.css'
-
 // Component Hand
 const CustomHand = (props) => {
   const handleSubmit = (event) => {
@@ -89,10 +87,10 @@ const CustomHand = (props) => {
     return (null)
   }
 }
-//export default CustomHand
+
 export default connect((state, props) => {
   return {
-    showResults: state.showResults,
-    showCustomHand: state.showCustomHand
+    showResults: state.deck.showResults,
+    showCustomHand: state.deck.showCustomHand
   }
 })(CustomHand)
