@@ -4,6 +4,9 @@
 */
 @import url('https://fonts.googleapis.com/css?family=Ubuntu&display');
 
+/* Constants */
+$color-back: #6E6650;
+$color-button: #4F4A41;
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -53,8 +56,9 @@ body {
   max-width: 360px;
 	font-family: 'Ubuntu', sans-serif;
   color: white;
-  background: #6E6659;
+  background: $color-back;
   font-size: 1rem;
+	margin: 8px;
 }
 button.cribbage-button {
   width: 90px;
@@ -62,7 +66,7 @@ button.cribbage-button {
   padding: 4px;
   margin: 3px;
   color: white;
-  background: #4F4A41;
+  background: $color-button;
 	border: 1px solid #FFFFFF;
 	border-radius: 10px;
   font-size: .6rem
@@ -181,6 +185,13 @@ p.cribbage-text {
 	font-size: 1rem;
   color: white;
 }
+p.connection-error {
+	margin: .9rem;
+	padding: 1rem;
+	font-size: .9rem;
+	color: #EEE;
+	background-color: #DD3333;
+}
 section.cribbage-section {
   display: flex;
   align-items: right;
@@ -193,7 +204,7 @@ select.custom-select {
 	display: block;
   padding: 2px;
   outline: none;
-  background: #4F4A41;
+  background: $color-button;
   margin-bottom: .25rem;
   font-size: .6rem;
   max-width: 100%;
@@ -218,6 +229,9 @@ border: 10px solid #99FFFF;
 		border: 1px solid #FFFFFF;
 		border-radius: 8px;
   }
+	button.cribbage-button:hover {
+		border-radius: 8px;
+	}
 	div.card-option {
     width: 96px;
   }
@@ -279,6 +293,9 @@ border: 10px solid #99FFFF;
 		border: 1px solid #FFFFFF;
 		border-radius: 10px;
   }
+	button.cribbage-button:hover {
+	 	border-radius: 10px;
+	}
 	div.cribbage-points > span {
       font-size: 1rem;
   }

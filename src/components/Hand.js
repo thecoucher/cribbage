@@ -6,7 +6,8 @@ const Hand = (props) => {
   const cards = props.cards
   const buttonText = props.buttonText
   const cardsLeft = props.cardsLeft
-
+  const showError = props.showError
+  const error = props.error
   let cardsImages = []
 
   if (cards.length > 0) {
@@ -34,6 +35,7 @@ const Hand = (props) => {
         <button className='cribbage-button' onClick={() => props.getHand()}>{buttonText}</button>
         <button className='cribbage-button' onClick={() => props.sortHand()}>Sort cards</button>
       </header>
+      <div style={{ display: (showError ? 'block' : 'none') }}><p className='connection-error'>{error}</p></div>
       <div><p className='cribbage-text'>Cards remaining in deck: {cardsLeft}</p></div>
       <section>
         <div>{cardsImages}</div>

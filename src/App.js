@@ -22,13 +22,21 @@ class App extends Component {
   componentDidMount() {
     const url = 'https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1'
     fetch(url)
-      .then(response =>
-        response.json()
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not OK')
+        }
+        return response.json()
+      }
       )
       .then(result => {
         this.props.dispatch(actions.getNewDeck(result.deck_id, result.remaining, false)
         )
       })
+      .catch((error => {
+        console.error('A problem occurred fetching the hand: ', error)
+        this.props.dispatch(actions.showError(error.message))
+      }))
   }
 
   /**
@@ -67,9 +75,12 @@ class App extends Component {
       swal('New deck', 'There are not enough cards left in the deck. Now using new deck', 'info')
       url = 'https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1'
       fetch(url)
-        .then(response =>
-          response.json()
-        )
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not OK')
+          }
+          return response.json()
+        })
         .then(result => {
           this.props.dispatch(actions.getNewDeck(result.deck_id, result.remaining, false))
           url = 'https://deckofcardsapi.com/api/deck/' + result.deck_id + '/draw/?count=5'
@@ -83,15 +94,26 @@ class App extends Component {
               this.props.dispatch(actions.getNewCards(result.cards, result.remaining, false))
             })
         })
+        .catch((error => {
+          console.error('A problem occurred fetching the hand: ', error)
+          this.props.dispatch(actions.showError(error.message))
+        }))
     } else {
       url = 'https://deckofcardsapi.com/api/deck/' + this.props.deck_id + '/draw/?count=5'
       fetch(url)
-        .then(response =>
-          response.json()
-        )
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not OK')
+          }
+          return response.json()
+        })
         .then(result => {
           this.props.dispatch(actions.getNewCards(result.cards, result.remaining, false))
         })
+        .catch((error => {
+          console.error('A problem occurred fetching the hand: ', error)
+          this.props.dispatch(actions.showError(error.message))
+        }))
     }
   }
 
@@ -250,7 +272,8 @@ class App extends Component {
     const setShowCustomHand = this.setShowCustomHand
     const setShowResults = this.setShowResults
     const onCustomHandChange = this.onCustomHandChange
-
+    const showError = this.props.showError
+    const error = this.props.error
     const hand = this.props.hand
     let cards
     if (hand) {
@@ -272,7 +295,7 @@ class App extends Component {
 
         <div className='result-row'>
           <React.Fragment>
-            <Hand getHand={this.getHand} sortHand={this.sortHand} cardsLeft={cardsLeft} cards={cards} buttonText={buttonText} />
+            <Hand getHand={this.getHand} sortHand={this.sortHand} cardsLeft={cardsLeft} cards={cards} buttonText={buttonText} showError={showError} error={error} />
           </React.Fragment>
         </div>
         <CustomHand cards={cards} setShowCustomHand={setShowCustomHand} onCustomHandChange={onCustomHandChange} />
@@ -282,12 +305,13 @@ class App extends Component {
   }
 }
 export default connect((state, props) => {
-  console.log('ppppppppppppppccccccccccccccccccccc ', state)
   return {
     showResults: state.deck.showResults,
     showCustomHand: state.deck.showCustomHand,
     hand: state.deck.hand,
     cardsLeft: state.deck.cardsLeft,
-    deck_id: state.deck.deck_id
+    deck_id: state.deck.deck_id,
+    showError: state.deck.showError,
+    error: state.deck.error
   }
 })(App)

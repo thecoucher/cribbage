@@ -38,3 +38,10 @@ export function changeHand(newHand) {
     data: { newHand: newHand }
   }
 }
+
+export function showError(error) {
+  return {
+    type: types.SHOW_ERROR,
+    data: { error: error }
+  }
+}

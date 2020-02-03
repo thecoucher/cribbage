@@ -25,6 +25,9 @@
  * 2. Prevent iOS and IE text size adjust after device orientation change,
  *    without disabling user zoom.
  */
+
+/*$color-blue: #0000FF;*/
+
  html {
   -ms-text-size-adjust: 100%;
   /* 2 */
@@ -183,8 +186,8 @@ html {
   font-size: 1rem; }
 
 body {
-  color: white;
-  background: #6E6658;
+  color: red;
+  background: red;
   font-size: 1rem; }
 
 header.cribbage-header {
@@ -202,7 +205,7 @@ button.cribbage-button {
   height: 30px;
   padding: 4px;
   margin: 3px;
-  color: white;
+  color: red;
   background: #4F4A41;
   border: #6E6658 1px solid;
   font-size: .6rem

@@ -13,7 +13,7 @@
     "sweetalert": "^2.1.2",
     "uuid": "^3.4.0"
   },
-  "homepage": "https://thecoucher.github.io/cribbage1",
+  "homepage": "https://thecoucher.github.io/cribbage",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -26,7 +26,8 @@
     "gh-pages": "^1.2.0",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "node-scss": "^4.7.2"
   },
   "browserslist": [
     ">0.2%",
