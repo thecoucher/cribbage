@@ -1,6 +1,6 @@
 import { ActionTypes as types } from '../constants'
 
-var defaultState = {
+let defaultState = {
   'showResults': false,
   'showCustomHand': false,
   'showError': false,

@@ -30,7 +30,7 @@ class Results extends Component {
      */
   addHighlight(cards) {
     const cardsToHighlight = cards.result ? cards.result : cards
-    for (var i = 0; i < cardsToHighlight.length; i++) {
+    for (let i = 0; i < cardsToHighlight.length; i++) {
       const elem = document.getElementById(cardsToHighlight[i].code)
       if (elem) {
         elem.style.border = '3px solid #99FFFF'
@@ -47,7 +47,7 @@ class Results extends Component {
   removeHighlight(cards) {
 
     const cardsToRemoveHighlight = cards.result ? cards.result : cards
-    for (var i = 0; i < cardsToRemoveHighlight.length; i++) {
+    for (let i = 0; i < cardsToRemoveHighlight.length; i++) {
       const elem = document.getElementById(cardsToRemoveHighlight[i].code)
       if (elem) {
         elem.style.border = null

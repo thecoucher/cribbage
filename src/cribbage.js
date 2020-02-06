@@ -30,9 +30,9 @@ const patternsOfFour = [
   * @returns {number[]} - Array of numbers representing the cards
   */
 function convertToIntegers(cards) {
-  var arrNoSuits = cards.map(card => card.value)
+  let arrNoSuits = cards.map(card => card.value)
   // change face cards and ace to numbers
-  var arrInteger = arrNoSuits.map(function(card) {
+  let arrInteger = arrNoSuits.map(function(card) {
     if (isNaN(card)) {
       card = (card === 'ACE') ? 1 : 10
     } else {
@@ -89,9 +89,9 @@ export function sumTwoNumbers(a, b) {
 * @example [[1,2], [3,5], [4,5]]
 */
 function twoSum(arr, target = 15) {
-  var result = []
-  for (var i = 0; i < arr.length; i++) {
-    for (var j = i + 1; j < arr.length; j++) {
+  let result = []
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
       if (arr[i] + arr[j] === target) {
         result.push([i, j])
       }
@@ -214,7 +214,7 @@ function getFifteenPairs(cardHand, target = 15) {
   let hand = convertToIntegers(cardHand)
   let result = twoSum(hand, target)
   let fifteenPairs = []
-  for (var i = 0; i < result.length; i++) {
+  for (let i = 0; i < result.length; i++) {
     fifteenPairs.push([cardHand[result[i][0]], cardHand[result[i][1]]])
   }
   return fifteenPairs
@@ -238,7 +238,7 @@ function getFifteenTriplets(cardHand, target = 15) {
   let fifteenTriplets = []
   for (let j = start + 1; j < hand.length + 2; j++) {
     let result = twoSum(hand, pairTarget)
-    for (var p = 0; p < result.length; p++) {
+    for (let p = 0; p < result.length; p++) {
       let temp = [cardHand[j - 1]]
       temp.push(cardHand[result[p][0] + j])
       temp.push(cardHand[result[p][1] + j])
