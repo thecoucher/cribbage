@@ -31,7 +31,7 @@ const Hand = (props) => {
   }
   return (
     <div className='cribbage-parent'>
-      <header className='cribbage-header'>
+      <header>
         <button className='cribbage-button' onClick={() => props.getHand()}>{buttonText}</button>
         <button className='cribbage-button' onClick={() => props.sortHand()}>Sort cards</button>
       </header>

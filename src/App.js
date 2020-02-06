@@ -289,18 +289,22 @@ class App extends Component {
       buttonText = 'Get new cards'
     }
     return (
-      <div className='container'>
-        <h1 className='cribbage-text'>Cribbage Hand Practice Tool</h1>
-        <p className='cribbage-text'>Practice your point counting skills.</p>
-
-        <div className='result-row'>
-          <React.Fragment>
-            <Hand getHand={this.getHand} sortHand={this.sortHand} cardsLeft={cardsLeft} cards={cards} buttonText={buttonText} showError={showError} error={error} />
-          </React.Fragment>
+      <React.Fragment>
+        <header className='cribbage-header'>
+          <h1 className='cribbage-text'>Cribbage Hand Practice Tool</h1>
+          <p className='cribbage-text'>Practice your point counting skills.</p>
+          <div className='icon' />
+        </header>
+        <div className='container'>
+          <div className='result-row'>
+            <React.Fragment>
+              <Hand getHand={this.getHand} sortHand={this.sortHand} cardsLeft={cardsLeft} cards={cards} buttonText={buttonText} showError={showError} error={error} />
+            </React.Fragment>
+          </div>
+          <CustomHand cards={cards} setShowCustomHand={setShowCustomHand} onCustomHandChange={onCustomHandChange} />
+          <Results cards={cards} setShowResults={setShowResults} />
         </div>
-        <CustomHand cards={cards} setShowCustomHand={setShowCustomHand} onCustomHandChange={onCustomHandChange} />
-        <Results cards={cards} setShowResults={setShowResults} />
-      </div>
+      </React.Fragment>
     )
   }
 }
