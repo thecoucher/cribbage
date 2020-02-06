@@ -25,7 +25,7 @@ const Hand = (props) => {
         <img className='card' src='./card_back.jpg' alt='2' />
         <img className='card' src='./card_back.jpg' alt='3' />
         <img className='card' src='./card_back.jpg' alt='4' />
-        <img className='c-card' src='./card_back.jpg' alt='5' />
+        <img className='c-card' src='./card_back.jpg' alt='6' />
       </div>
 
   }
