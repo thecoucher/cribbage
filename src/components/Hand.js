@@ -21,11 +21,11 @@ const Hand = (props) => {
   } else {
     cardsImages =
       <div className='cribbage-section'>
-        <img className='card' src='./../images/card_back.jpg' alt='1' />
-        <img className='card' src='./../../images/card_back.jpg' alt='2' />
-        <img className='card' src='../images/card_back.jpg' alt='3' />
-        <img className='card' src='./../images/card_back.jpg' alt='4' />
-        <img className='c-card' src='./../images/card_back.jpg' alt='5' />
+        <img className='card' src='./card_back.jpg' alt='1' />
+        <img className='card' src='./card_back.jpg' alt='2' />
+        <img className='card' src='./card_back.jpg' alt='3' />
+        <img className='card' src='./card_back.jpg' alt='4' />
+        <img className='c-card' src='./card_back.jpg' alt='5' />
       </div>
 
   }

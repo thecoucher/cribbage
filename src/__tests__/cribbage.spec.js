@@ -121,12 +121,12 @@ describe("Function getFlushes()", () => {
 describe("Function getNibs()", () => {
   test("it should return one result of two cards with nibs", () => {
     const result = [cardJH, cardQH]
-    const hand = [cardJH, card4H, card6H, card8H]
+    const hand = [cardJH, card4H, card6H, card8H, cardQH]
     expect(getNibs(hand, cardQH)).toEqual(result)
   })
-  test("it should not return a result of two cards with no mathcing suit", () => {
+  test("it should not return a result of two cards with no matching suit", () => {
     const result = []
-    const hand = [cardJH, card4H, card6H, card8H]
+    const hand = [cardJH, card4H, card6H, card8H, cardKC]
     expect(getNibs(hand, cardQS)).toEqual(result)
   })
 })
@@ -158,7 +158,7 @@ describe("Function getRuns()", () => {
   })
   test("it should not return a result when there are no runs", () => {
     const result = []
-    const hand = [cardJH, card4H, card6H, card8H]
+    const hand = [cardJH, card4H, card6H, card8H, card9D]
     expect(getNibs(hand, cardQS)).toEqual(result)
   })
 })
