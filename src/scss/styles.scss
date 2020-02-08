@@ -134,7 +134,7 @@ h1.cribbage-text {
   font-weight: bold;
 	margin: .2rem;
 	font-size: 1rem;
-  color: $color-hover;
+  color: white;
 }
 header.cribbage-header {
 	background-image: url("./../images/cribbage_header_small.jpg");
@@ -146,7 +146,7 @@ header.cribbage-header {
 	position: relative;
 }
 header > p.cribbage-text {
-	color: $color-hover;
+	color: white;
 }
 div.icon{
 	position: absolute;
