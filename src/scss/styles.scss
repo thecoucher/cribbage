@@ -111,9 +111,6 @@ div#card-options {
   display: flex;
   width: 100%;
 }
-div.cribbage-points > span {
-    font-size: .7rem;
-}
 div.card-option {
   width: 63px;
   margin: 3px;
@@ -123,30 +120,21 @@ div.card-option:nth-last-child(1) {
 }
 div.cribbage-points {
   display: inline-block;
-  height: 100%;
+  height: inherit;
   width: 40%;
   margin-left: auto;
   text-align: left;
   vertical-align: middle;
  }
-div.cribbage-points span {
-  /*display: inline-block;*/
-	font-size: .7rem;
-  vertical-align: middle;
-  line-height: normal;
+div.cribbage-points > span {
+	font-size: .9rem;
+	line-height: 45px;
 }
 h1.cribbage-text {
-  margin: .2rem;
+  font-weight: bold;
+	margin: .2rem;
 	font-size: 1rem;
-  color: white;
-}
-h2.cribbage-text {
-  margin: 0.7rem;
-	color: white;
-}
-h3.cribbage-text {
-  color: white;
-  font-size: .7rem
+  color: $color-hover;
 }
 header.cribbage-header {
 	background-image: url("./../images/cribbage_header_small.jpg");
@@ -156,6 +144,9 @@ header.cribbage-header {
 	height: 62px;
 	text-align: center;
 	position: relative;
+}
+header > p.cribbage-text {
+	color: $color-hover;
 }
 div.icon{
 	position: absolute;
@@ -173,7 +164,7 @@ div.icon{
 img.card {
   height:77px ;
   width: 55px;
-  margin: 4px;
+  margin: 2px;
   padding: 0px;
   float: left;
 	border: 3px solid #6E6659;
@@ -189,12 +180,11 @@ img.c-card {
 img.result-card {
   height: 42px;
   width: 30px;
-  margin-right: 5px;
-  margin-bottom: 5px;
+  margin: 2px;
   float: left;
 }
 label.cribbage-checkbox {
-    font-size: .7rem;
+    font-size: .9rem;
     font-weight: normal;
 }
 p.cribbage-text {
@@ -259,9 +249,6 @@ select.custom-select:hover {
 		margin: 0.4rem;
 		font-size: 1.5rem;
   }
-  h3.cribbage-text {
-    font-size: 1.3rem;
-  }
 	header.cribbage-header {
 		background-image: url("./../images/cribbage_header_medium.jpg");
 		background-repeat: no-repeat;
@@ -293,13 +280,11 @@ select.custom-select:hover {
   img.result-card {
     height: 67px;
     width: 48px;
-    margin-right: 6px;
-    margin-bottom: 6px;
+    margin: 3px;
   }
 	label.cribbage-checkbox {
-    font-size: .8rem;
+    font-size: .9rem;
     font-weight: normal;
-
   }
 	p.cribbage-text {
 	  margin: 1rem;
@@ -310,11 +295,10 @@ select.custom-select:hover {
     width: 96px;
     font-size: .7rem;
   }
-  span.cribbage-points  span {
-			font-size: .9rem;
-			background: red;
-			font-size: 10rem;
-  }
+	div.cribbage-points > span {
+		font-size: .9rem;
+		line-height: 64px;
+	}
 }
 
 /* #### Desktops #### */
@@ -335,17 +319,15 @@ select.custom-select:hover {
 	 	border-radius: 10px;
 	}
 	div.cribbage-points > span {
-      font-size: 1rem;
-  }
-  div.card-option {
+		font-size: 1rem;
+		line-height: 75px;
+	}
+	div.card-option {
     width: 134px;
   }
 	h1.cribbage-text {
     margin: .9rem;
 		font-size: 2rem;
-  }
-  h3.cribbage-text {
-    font-size: 1.7rem;
   }
 	header.cribbage-header {
 		background-image: url("./../images/cribbage_header_large.jpg");
@@ -376,16 +358,15 @@ select.custom-select:hover {
   img.result-card {
     height: 90px;
     width: 64px;
-    margin-right: 2px;
-    margin-bottom: 2px;
+    margin: 2px;
   }
 	label.cribbage-checkbox {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: normal;
   }
 	p.cribbage-text {
 	  margin: 1.5rem;
-		font-size: .9rem;
+		font-size: 1.2rem;
 	  color: white;
 	}
 	select.custom-select {
