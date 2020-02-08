@@ -318,7 +318,6 @@ export function getFlushes(cardHand) {
 // checks if the hand has a Jack that matches the suit of the community card
 export function
   getNibs(cards) {
-  console.log('ppppppppppppppppppppp cards: ', cards)
   let communitySuit = cards[4].suit
   let result = []
   for (let i = 0; i < cards.length - 1; i++) {
