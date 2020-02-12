@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import cardback from './../images/card_back.jpg'
 
 // Component Hand
 const Hand = (props) => {
@@ -21,11 +22,11 @@ const Hand = (props) => {
   } else {
     cardsImages =
       <div className='cribbage-section'>
-        <img className='card' src='./card_back.jpg' alt='1' />
-        <img className='card' src='./card_back.jpg' alt='2' />
-        <img className='card' src='./card_back.jpg' alt='3' />
-        <img className='card' src='./card_back.jpg' alt='4' />
-        <img className='c-card' src='./card_back.jpg' alt='6' />
+        <img className='card' src={cardback} alt='1' />
+        <img className='card' src={cardback} alt='2' />
+        <img className='card' src={cardback} alt='3' />
+        <img className='card' src={cardback} alt='4' />
+        <img className='c-card' src={cardback} alt='5' />
       </div>
 
   }
