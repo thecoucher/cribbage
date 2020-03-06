@@ -21,7 +21,7 @@ const Hand = (props) => {
     })
   } else {
     cardsImages =
-      <div className='cribbage-section'>
+      <div>
         <img className='card' src={cardback} alt='1' />
         <img className='card' src={cardback} alt='2' />
         <img className='card' src={cardback} alt='3' />
@@ -32,15 +32,13 @@ const Hand = (props) => {
   }
   return (
     <div className='cribbage-parent'>
-      <header>
+      <div>
         <button className='cribbage-button' onClick={() => props.getHand()}>{buttonText}</button>
         <button className='cribbage-button' onClick={() => props.sortHand()}>Sort cards</button>
-      </header>
+      </div>
       <div style={{ display: (showError ? 'block' : 'none') }}><p className='connection-error'>{error}</p></div>
       <div><p className='cribbage-text'>Cards remaining in deck: {cardsLeft}</p></div>
-      <section>
-        <div>{cardsImages}</div>
-      </section>
+      {cardsImages}
     </div>
   )
 }

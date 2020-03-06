@@ -79,15 +79,18 @@ button.cribbage-button:hover {
 div#root {
 	min-width: 395px;
 }
-div.cribbage-parent {
-  width: 100%;
-}
-div.full-hand-cardsLeft {
-  width: 90%;
-}
 div.result-row {
   display: flex;
   justify-content: space-between;
+}
+div.cribbage-parent {
+  width: 100%;
+}
+section.cribbage-results {
+  display: flex;
+}
+div.full-hand-cardsLeft {
+  width: 90%;
 }
 div.result-image {
   width: 90%;
@@ -100,7 +103,7 @@ div.show-results {
   justify-content: left;
   margin: 10px;
 }
-div.container {
+div.app {
 	max-width: 380px;
 }
 div.CustomHandForm {
@@ -202,20 +205,14 @@ p.connection-error {
 	color: #EEE;
 	background-color: #DD3333;
 }
-section.cribbage-section {
-  display: flex;
-  align-items: right;
-}
-section.cribbage-results {
-  display: flex;
-}
+
 select.custom-select {
 	color: white;
 	display: block;
   padding: 2px;
   outline: none;
   background: $color-button;
-  margin: .25rem 7px;
+  margin: 4px 7px 4px 1px;
   font-size: .6rem;
   width: 60px;
   height: 30px;
@@ -230,7 +227,7 @@ select.custom-select:hover {
 
 /* #### Tablets Portrait or Landscape #### */
 @media screen and (min-width: 768px) and (max-width: 900px){
-	div.container {
+	div.app {
 		max-width: 640px;
 	}
 	button.cribbage-button {
@@ -306,7 +303,7 @@ select.custom-select:hover {
 
 /* #### Desktops #### */
 @media screen and (min-width: 901px){
-	div.container {
+	div.app {
 		max-width: 820px;
 	}
 	button.cribbage-button {

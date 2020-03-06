@@ -295,7 +295,7 @@ class App extends Component {
           <p className='cribbage-text'>Practice your point counting skills.</p>
           <div className='icon' />
         </header>
-        <div className='container'>
+        <div className='app'>
           <div className='result-row'>
             <React.Fragment>
               <Hand getHand={this.getHand} sortHand={this.sortHand} cardsLeft={cardsLeft} cards={cards} buttonText={buttonText} showError={showError} error={error} />
