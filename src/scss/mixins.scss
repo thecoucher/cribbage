@@ -1,0 +1,10 @@
+@mixin card-image($height, $width) {
+  height: $height ;
+  width: $width;
+}
+@mixin section-border($width) {
+  border-radius: 10px;
+  border-top: $width $color-neon solid;
+  border-left: $width $color-neon solid;
+  margin-bottom: 10px;
+}

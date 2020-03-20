@@ -5,7 +5,6 @@ import cardback from './../images/card_back.jpg'
 // Component Hand
 const Hand = (props) => {
   const cards = props.cards
-  const buttonText = props.buttonText
   const cardsLeft = props.cardsLeft
   const showError = props.showError
   const error = props.error
@@ -31,11 +30,7 @@ const Hand = (props) => {
 
   }
   return (
-    <div className='cribbage-parent'>
-      <div>
-        <button className='cribbage-button' onClick={() => props.getHand()}>{buttonText}</button>
-        <button className='cribbage-button' onClick={() => props.sortHand()}>Sort cards</button>
-      </div>
+    <div className='cards-section'>
       <div style={{ display: (showError ? 'block' : 'none') }}><p className='connection-error'>{error}</p></div>
       <div><p className='cribbage-text'>Cards remaining in deck: {cardsLeft}</p></div>
       {cardsImages}
@@ -46,7 +41,6 @@ const Hand = (props) => {
 Hand.propTypes = {
   getHand: PropTypes.func.isRequired,
   sortHand: PropTypes.func.isRequired,
-  buttonText: PropTypes.string.isRequired,
   cardsLeft: PropTypes.number.isRequired,
   cards: PropTypes.arrayOf(PropTypes.shape({
     suit: PropTypes.string.isRequired,

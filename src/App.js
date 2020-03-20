@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actions from './actions/actions'
 import swal from 'sweetalert'
+import Buttons from './components/Buttons'
+import Options from './components/Options'
 import Hand from './components/Hand'
 import Results from './components/Results'
 import CustomHand from './forms/CustomHand'
@@ -15,6 +17,7 @@ class App extends Component {
     this.setShowResults = this.setShowResults.bind(this)
     this.onCustomHandChange = this.onCustomHandChange.bind(this)
   }
+
 
   componentWillUnmount() {
   }
@@ -271,6 +274,7 @@ class App extends Component {
     const cardsLeft = this.props.cardsLeft
     const setShowCustomHand = this.setShowCustomHand
     const setShowResults = this.setShowResults
+    const showResults = this.props.showResults
     const onCustomHandChange = this.onCustomHandChange
     const showError = this.props.showError
     const error = this.props.error
@@ -296,13 +300,15 @@ class App extends Component {
           <div className='icon' />
         </header>
         <div className='app'>
+          <Buttons getHand={this.getHand} sortHand={this.sortHand} buttonText={buttonText} />
           <div className='result-row'>
             <React.Fragment>
-              <Hand getHand={this.getHand} sortHand={this.sortHand} cardsLeft={cardsLeft} cards={cards} buttonText={buttonText} showError={showError} error={error} />
+              <Hand getHand={this.getHand} sortHand={this.sortHand} cardsLeft={cardsLeft} cards={cards} showError={showError} error={error} />
             </React.Fragment>
           </div>
+          <Options setShowCustomHand={setShowCustomHand} onCustomHandChange={onCustomHandChange} numberOfCards={cards.length} showResults={showResults} setShowResults={setShowResults} />
           <CustomHand cards={cards} setShowCustomHand={setShowCustomHand} onCustomHandChange={onCustomHandChange} />
-          <Results cards={cards} setShowResults={setShowResults} />
+          <Results cards={cards} />
         </div>
       </React.Fragment>
     )

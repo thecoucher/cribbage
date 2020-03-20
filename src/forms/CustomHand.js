@@ -47,15 +47,10 @@ const CustomHand = (props) => {
     )
   }
 
-  const showCustomHandCheckbox = <div className='show-results'>
-    <label className='cribbage-checkbox'> <input type='checkbox' inline='true' checked={props.showCustomHand} onChange={props.setShowCustomHand} />Modify your cards</label>
-  </div>
-
   if (props.cards.length === 5) {
     return (
       <React.Fragment>
-        <div>{showCustomHandCheckbox}</div>
-        <div style={{ display: (props.showCustomHand ? 'block' : 'none') }}>
+        <div className="custom-selects" style={{ display: (props.showCustomHand ? 'block' : 'none') }}>
           <form onSubmit={handleSubmit}>
             <div id='card-options'>
               <div className='card-option'>
@@ -90,7 +85,6 @@ const CustomHand = (props) => {
 
 export default connect((state, props) => {
   return {
-    showResults: state.deck.showResults,
     showCustomHand: state.deck.showCustomHand
   }
 })(CustomHand)

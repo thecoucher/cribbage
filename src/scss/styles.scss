@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu&display');
 @import "init";
 @import "colors";
+@import "mixins";
 
 body {
 	width: 100%;
@@ -36,8 +37,13 @@ div.result-row {
   display: flex;
   justify-content: space-between;
 }
-div.cribbage-parent {
+div.cards-section {
   width: 100%;
+	@include section-border(3px)
+}
+div.cribbage-buttons {
+  width: 100%;
+	@include section-border(3px)
 }
 div.full-hand-cardsLeft {
   width: 90%;
@@ -48,10 +54,14 @@ div.result-image {
 div.result-text {
   width: 90%;
 }
-div.show-results {
-  display: flex;
-  justify-content: left;
-  margin: 10px;
+div.cribbage-options {
+	@include section-border(3px)
+}
+div.custom-selects {
+	@include section-border(3px)
+}
+div.cribbage-results {
+	@include section-border(3px)
 }
 div.app {
 	max-width: 380px;
@@ -110,24 +120,21 @@ header > p.cribbage-text {
 }
 /* images */
 img.card {
-	height:77px ;
-	width: 55px;
+	@include card-image(77px, 55px)
 	margin: 2px;
 	padding: 0px;
 	float: left;
 	border: 3px solid $color-back;
 }
 img.c-card {
-  height: 77px ;
-  width: 55px;
+	@include card-image(77px, 55px)
   padding: 0px;
   margin: 2px;
   float: right;
 	border: 3px solid $color-back;
 }
 img.result-card {
-  height: 42px;
-  width: 30px;
+	@include card-image(42px, 30px)
   margin: 2px;
   float: left;
 }
@@ -150,7 +157,8 @@ select.custom-select {
 	display: block;
   padding: 2px;
   outline: none;
-  background: $color-button;
+	border-radius: 8px;
+	background: $color-button;
   margin: 4px 7px 4px 1px;
   font-size: .6rem;
   width: 60px;
@@ -177,8 +185,10 @@ h1.cribbage-text {
 label.cribbage-checkbox {
     font-size: .9rem;
     font-weight: normal;
+		margin-left: 5px;
+		display:block;
 }
-section.cribbage-results {
+section.cribbage-result {
   display: flex;
 }
 
@@ -230,18 +240,15 @@ section.cribbage-results {
 	}
 	/* Images */
 	img.card {
-    height: 135px ;
-    width: 96px;
+		@include card-image(135px, 96px)
     margin: 3px;
   }
   img.c-card {
-    height: 135px ;
-    width: 96px;
+		@include card-image(135px, 96px)
     margin: 4px;
   }
   img.result-card {
-    height: 67px;
-    width: 48px;
+		@include card-image(67px, 48px)
     margin: 3px;
   }
 	/* Paragraphs */
@@ -262,7 +269,6 @@ section.cribbage-results {
   }
 	label.cribbage-checkbox {
     font-size: .9rem;
-    font-weight: normal;
   }
 
 }
@@ -326,16 +332,13 @@ section.cribbage-results {
 	}
 	/* Images */
 	img.card {
-    height: 180px ;
-    width: 128px;
+    @include card-image(180px, 128px)
   }
   img.c-card {
-    height: 180px ;
-    width: 128px;
+		@include card-image(180px, 128px)
   }
   img.result-card {
-    height: 90px;
-    width: 64px;
+		@include card-image(90px, 64px)
     margin: 2px;
   }
 	/* Paragraphs */
@@ -349,13 +352,12 @@ section.cribbage-results {
     width: 128px;
     font-size: .8rem;
   }
-	/* Miscellaneous */	
+	/* Miscellaneous */
 	h1.cribbage-text {
     margin: .9rem;
 		font-size: 2rem;
   }
 	label.cribbage-checkbox {
     font-size: 1.2rem;
-    font-weight: normal;
   }
 }

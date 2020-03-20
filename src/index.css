@@ -227,11 +227,11 @@ h3.cribbage-text {
   font-size: .7rem
 }
 
-div.cribbage-parent {
+div.cards-section {
   width: 100%;
 }
 
-section.cribbage-results {
+section.cribbage-result {
   display: flex;
 }
 
@@ -252,9 +252,7 @@ div.result-text {
   width: 90%;
 }
 
-div.show-results {
-  display: flex;
-  justify-content: left;
+div.cribbage-options {
   margin: 10px;
 }
 
