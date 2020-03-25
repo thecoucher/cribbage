@@ -2,14 +2,15 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 const Options = (props) => {
-  const showCustomHand = (props.numberOfCards === 5)
+  const showOptions = (props.numberOfCards === 5)
   const showResults = props.showResults
+  const showCustomHand = props.showCustomHand
 
-  if (showCustomHand) {
+  if (showOptions) {
     return (
       <div className='cribbage-options'>
         <label className='cribbage-checkbox'>
-          <input type='checkbox' checked={props.showCustomHand} onChange={props.setShowCustomHand} />Modify your cards
+          <input type='checkbox' checked={showCustomHand} onChange={props.setShowCustomHand} />Modify your cards
         </label>
         <label className='cribbage-checkbox'>
           <input type='checkbox' checked={showResults} onChange={props.setShowResults} />{showResults ? 'Hide results' : 'Show results'}
@@ -17,11 +18,7 @@ const Options = (props) => {
       </div>
     )
   } else {
-    return (
-      <div className='cribbage-options'>
-        <label className='cribbage-checkbox'><input type='checkbox' inline='true' checked={showResults} onChange={props.setShowResults} />{showResults ? 'Hide results' : 'Show results'}</label>
-      </div>
-    )
+    return null
   }
 }
 Options.propTypes = {

@@ -239,7 +239,7 @@ div.full-hand-cardsLeft {
   width: 90%;
 }
 
-div.result-row {
+div.player-hand {
   display: flex;
   justify-content: space-between;
 }

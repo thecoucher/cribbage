@@ -49,34 +49,32 @@ const CustomHand = (props) => {
 
   if (props.cards.length === 5) {
     return (
-      <React.Fragment>
-        <div className="custom-selects" style={{ display: (props.showCustomHand ? 'block' : 'none') }}>
-          <form onSubmit={handleSubmit}>
-            <div id='card-options'>
-              <div className='card-option'>
-                {showCardOptions('card1', props.cards[0].value)}
-                {showSuitOptions('suit1', props.cards[0].suit)}
-              </div>
-              <div className='card-option'>
-                {showCardOptions('card2', props.cards[1].value)}
-                {showSuitOptions('suit2', props.cards[1].suit)}
-              </div>
-              <div className='card-option'>
-                {showCardOptions('card3', props.cards[2].value)}
-                {showSuitOptions('suit3', props.cards[2].suit)}
-              </div>
-              <div className='card-option'>
-                {showCardOptions('card4', props.cards[3].value)}
-                {showSuitOptions('suit4', props.cards[3].suit)}
-              </div>
-              <div className='card-option'>
-                {showCardOptions('card5', props.cards[4].value)}
-                {showSuitOptions('suit5', props.cards[4].suit)}
-              </div>
+      <div id="customize-hand" className="custom-selects">
+        <form onSubmit={handleSubmit}>
+          <div id='card-options'>
+            <div className='card-option'>
+              {showCardOptions('card1', props.cards[0].value)}
+              {showSuitOptions('suit1', props.cards[0].suit)}
             </div>
-          </form >
-        </div>
-      </React.Fragment>
+            <div className='card-option'>
+              {showCardOptions('card2', props.cards[1].value)}
+              {showSuitOptions('suit2', props.cards[1].suit)}
+            </div>
+            <div className='card-option'>
+              {showCardOptions('card3', props.cards[2].value)}
+              {showSuitOptions('suit3', props.cards[2].suit)}
+            </div>
+            <div className='card-option'>
+              {showCardOptions('card4', props.cards[3].value)}
+              {showSuitOptions('suit4', props.cards[3].suit)}
+            </div>
+            <div className='card-option'>
+              {showCardOptions('card5', props.cards[4].value)}
+              {showSuitOptions('suit5', props.cards[4].suit)}
+            </div>
+          </div>
+        </form >
+      </div>
     )
   } else {
     return (null)

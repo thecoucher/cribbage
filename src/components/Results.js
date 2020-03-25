@@ -200,8 +200,7 @@ Results.propTypes = {
 
 export default connect((state, props) => {
   return {
-    showResults: state.deck.showResults,
-    showCustomHand: state.deck.showCustomHand
+    showResults: state.deck.showResults
   }
 })(Results)
 

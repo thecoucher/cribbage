@@ -154,6 +154,8 @@ class App extends Component {
      */
   setShowCustomHand() {
     this.props.dispatch(actions.toggleShowCustomHand())
+    const customHandDiv = document.getElementById('customize-hand')
+    customHandDiv.classList.toggle('expanded')
   }
 
   /**
@@ -273,6 +275,7 @@ class App extends Component {
 
     const cardsLeft = this.props.cardsLeft
     const setShowCustomHand = this.setShowCustomHand
+    const showCustomHand = this.props.showCustomHand
     const setShowResults = this.setShowResults
     const showResults = this.props.showResults
     const onCustomHandChange = this.onCustomHandChange
@@ -301,13 +304,11 @@ class App extends Component {
         </header>
         <div className='app'>
           <Buttons getHand={this.getHand} sortHand={this.sortHand} buttonText={buttonText} />
-          <div className='result-row'>
-            <React.Fragment>
-              <Hand getHand={this.getHand} sortHand={this.sortHand} cardsLeft={cardsLeft} cards={cards} showError={showError} error={error} />
-            </React.Fragment>
+          <div className='player-hand'>
+            <Hand getHand={this.getHand} sortHand={this.sortHand} cardsLeft={cardsLeft} cards={cards} showError={showError} error={error} />
+            <CustomHand cards={cards} onCustomHandChange={onCustomHandChange} />
           </div>
-          <Options setShowCustomHand={setShowCustomHand} onCustomHandChange={onCustomHandChange} numberOfCards={cards.length} showResults={showResults} setShowResults={setShowResults} />
-          <CustomHand cards={cards} setShowCustomHand={setShowCustomHand} onCustomHandChange={onCustomHandChange} />
+          <Options setShowCustomHand={setShowCustomHand} showCustomHand={showCustomHand} onCustomHandChange={onCustomHandChange} numberOfCards={cards.length} showResults={showResults} setShowResults={setShowResults} />
           <Results cards={cards} />
         </div>
       </React.Fragment>

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Baloo+Chettan+2&display=swap');
-@import "colors";
+@import "colors_modern";
 @import "mixins";
 
 body {
@@ -31,16 +31,15 @@ div#root {
 	min-width: 395px;
 }
 div.player-hand {
-  display: flex;
   justify-content: space-between;
+	@include section-border(3px)
 }
 div.cards-section {
   width: 100%;
-	@include section-border(3px)
 }
 div.cribbage-buttons {
   width: 100%;
-	@include section-border(3px)
+	@include section-border(3px);
 }
 div.full-hand-cardsLeft {
   width: 90%;
@@ -52,19 +51,20 @@ div.result-text {
   width: 90%;
 }
 div.cribbage-options {
-	@include section-border(3px)
+	@include section-border(3px);
 }
 div.custom-selects {
-	height: 50px;
-	@include section-border(3px)
+	clear: both;
+	height: 0px;
+	overflow-y: hidden;
+	transition: height .4s linear;
 }
 div.custom-selects.expanded {
-	height: 100px;
-	@include section-border(3px)
+	height: 85px
 }
-
 div.cribbage-results {
-	@include section-border(3px)
+	height: 100%;
+	@include section-border(3px);
 }
 div.app {
 	max-width: 380px;
@@ -106,12 +106,12 @@ div.icon{
 	width: 50px;
 	height: 48px;
 	top: 0px;
-	left: 336px;
+	left: -336px;
 }
 /* Headers */
 header.cribbage-header {
-	background-image: url("./../images/cribbage_header_small.jpg");
-	background-repeat: no-repeat;
+	//background-image: url("./../images/cribbage_header_small.jpg");
+	//background-repeat: no-repeat;
 	margin: 0 0 4px 0;
 	max-width: 396px;
 	height: 62px;
@@ -152,6 +152,7 @@ p.connection-error {
 	padding: 1rem;
 	font-size: .9rem;
 	color: #EEE;
+	border-radius: 8px;
 	background-color: $color-error;
 }
 /* Selects */
@@ -193,6 +194,7 @@ label.cribbage-checkbox {
 }
 section.cribbage-result {
   display: flex;
+	margin: 5px;
 }
 
 
@@ -225,7 +227,7 @@ section.cribbage-result {
 		width: 86px;
 		height: 84px;
 		top: 0px;
-		left: 0px;
+		left: -400px;
 	}
 	div.cribbage-points > span {
 		font-size: .9rem;
@@ -233,8 +235,8 @@ section.cribbage-result {
 	}
 	/* Headers */
 	header.cribbage-header {
-		background-image: url("./../images/cribbage_header_medium.jpg");
-		background-repeat: no-repeat;
+		// background-image: url("./../images/cribbage_header_medium.jpg");
+		// background-repeat: no-repeat;
 		max-width: 640px;
 		height: 84px;
 		text-align: center;
@@ -321,12 +323,12 @@ section.cribbage-result {
 		width: 110px;
 		height: 108px;
 		top: 0px;
-		left: 0px;
+		left: -300px;
 	}
 	/* Header */
 	header.cribbage-header {
-		background-image: url("./../images/cribbage_header_large.jpg");
-		background-repeat: no-repeat;
+		// background-image: url("./../images/cribbage_header_large.jpg");
+		// background-repeat: no-repeat;
 		max-width: 820px;
 		height: 108px;
 		text-align: center;
