@@ -86,7 +86,7 @@ class Results extends Component {
       runsResult = getRuns(fullHand)
       pairResults = getPairs(fullHand)
       flushResult = getFlushes(fullHand)
-      nibsResult = getNibs(cards)
+      nibsResult = getNibs(fullHand)
       // add all the results of the sums
       totalScore = this.tallyTheScores(pairResults, sumsResult, runsResult, flushResult, nibsResult)
     }
