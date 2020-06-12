@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/cribbage/static/css/main.f1aa2001.chunk.css",
-    "main.js": "/cribbage/static/js/main.2a1bb3a4.chunk.js",
-    "main.js.map": "/cribbage/static/js/main.2a1bb3a4.chunk.js.map",
+    "main.js": "/cribbage/static/js/main.a9ae6cca.chunk.js",
+    "main.js.map": "/cribbage/static/js/main.a9ae6cca.chunk.js.map",
     "runtime-main.js": "/cribbage/static/js/runtime-main.a9c6c1b4.js",
     "runtime-main.js.map": "/cribbage/static/js/runtime-main.a9c6c1b4.js.map",
     "static/js/2.07067061.chunk.js": "/cribbage/static/js/2.07067061.chunk.js",
     "static/js/2.07067061.chunk.js.map": "/cribbage/static/js/2.07067061.chunk.js.map",
     "index.html": "/cribbage/index.html",
-    "precache-manifest.0d962706a0a8943ee87d253135f09cf8.js": "/cribbage/precache-manifest.0d962706a0a8943ee87d253135f09cf8.js",
+    "precache-manifest.c85a23a68ffebcefe77d5aba09c5c490.js": "/cribbage/precache-manifest.c85a23a68ffebcefe77d5aba09c5c490.js",
     "service-worker.js": "/cribbage/service-worker.js",
     "static/css/main.f1aa2001.chunk.css.map": "/cribbage/static/css/main.f1aa2001.chunk.css.map",
     "static/js/2.07067061.chunk.js.LICENSE.txt": "/cribbage/static/js/2.07067061.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.a9c6c1b4.js",
     "static/js/2.07067061.chunk.js",
     "static/css/main.f1aa2001.chunk.css",
-    "static/js/main.2a1bb3a4.chunk.js"
+    "static/js/main.a9ae6cca.chunk.js"
   ]
 }
