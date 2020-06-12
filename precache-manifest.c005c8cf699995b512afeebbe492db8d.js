@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c654ff47140d7451d92d867ff2f5fa2b",
+    "revision": "06ab4248620cbc8eb620f3eaa68b4549",
     "url": "/cribbage/index.html"
   },
   {
-    "revision": "ba5d041e1519fddb921a",
+    "revision": "8a49332c9d66aed7894f",
     "url": "/cribbage/static/css/main.f1aa2001.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/cribbage/static/js/2.07067061.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ba5d041e1519fddb921a",
-    "url": "/cribbage/static/js/main.99c27936.chunk.js"
+    "revision": "8a49332c9d66aed7894f",
+    "url": "/cribbage/static/js/main.23e108db.chunk.js"
   },
   {
     "revision": "a7aed633b345f491b344",
