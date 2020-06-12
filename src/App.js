@@ -38,8 +38,8 @@ class App extends Component {
     return (
       <Router>
         <React.Fragment>
-          <Nav />
           <header className='cribbage-header'>
+            <Nav />
             <h1 className='cribbage-text'>Cribbage Hand Practice Tool</h1>
             <p className='cribbage-text'>Practice your point counting skills.</p>
             <div className='icon' />
