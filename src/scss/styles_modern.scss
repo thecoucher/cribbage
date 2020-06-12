@@ -175,6 +175,56 @@ border: 5px solid red;
 select.custom-select:hover {
 	border: $color-hover 1px solid;
 }
+/* About page */
+div.logo {
+	margin-left:auto;
+	margin-right:auto;
+	width: 40%;
+}
+
+div.about {
+	padding: 3em;
+}
+
+div.about a:visited {
+	text-decoration: none;
+	color: white;
+}
+div.about a:link {
+	text-decoration: none;
+	color: white;
+}
+
+/* Navigation */
+nav {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 1.5em;
+	padding: 0px;
+	margin: 0px;
+	min-height: 2em;
+	background: $color-back;
+	color: white;
+}
+
+ul.nav-link {
+	width: 40%;
+	display: flex;
+	justify-content:space-around;
+	align-items: center;
+	list-style: none;
+}
+
+ul.nav-link>a {
+	text-decoration: none;
+}
+
+img.logo {
+	height: 33%;
+	width: 33%;
+}
+
 /* Miscellaneous */
 .hand {
 	margin-right: 4px;
