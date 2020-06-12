@@ -49,7 +49,7 @@ class App extends Component {
               <Route path="/" exact component={Main} />
               <Route path="/settings" component={Settings} />
               <Route path="/about" component={About} />
-              <Route path="" component={Main} />
+              <Route path="/main" component={Main} />
             </Switch>
           </div>
         </React.Fragment>
