@@ -46,10 +46,9 @@ class App extends Component {
           </header>
           <div className='app'>
             <Switch>
-              <Route path="/" exact component={Main} />
-              <Route path="/settings" component={Settings} />
-              <Route path="/about" component={About} />
-              <Route path="/main" component={Main} />
+              <Route path={process.env.PUBLIC_URL + '/'} exact component={Main} />
+              <Route path={process.env.PUBLIC_URL + '/settings'} component={Settings} />
+              <Route path={process.env.PUBLIC_URL + '/about'} component={About} />
             </Switch>
           </div>
         </React.Fragment>
