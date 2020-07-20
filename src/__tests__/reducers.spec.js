@@ -4,6 +4,7 @@ import { ActionTypes as types } from '../constants'
 let state = {
   'showResults': false,
   'showCustomHand': false,
+  'hideResultsWhenDealt': false,
   'showError': false,
   'error': '',
   'hand': [],
@@ -17,6 +18,7 @@ describe('deck reducer', () => {
       {
         'showResults': false,
         'showCustomHand': false,
+        'hideResultsWhenDealt': true,
         'showError': false,
         'error': '',
         'hand': [],
@@ -34,6 +36,7 @@ describe('deck reducer', () => {
       {
         'showResults': true,
         'showCustomHand': false,
+        'hideResultsWhenDealt': false,
         'showError': false,
         'error': '',
         'hand': [],
@@ -50,6 +53,24 @@ describe('deck reducer', () => {
       {
         'showResults': false,
         'showCustomHand': true,
+        'hideResultsWhenDealt': false,
+        'showError': false,
+        'error': '',
+        'hand': [],
+        'cardsLeft': 0
+      }
+    )
+  })
+  it('should handle TOGGLE_HIDE_RESULTS_WHEN_DEALT', () => {
+    expect(
+      reducer(state, {
+        type: types.TOGGLE_HIDE_RESULTS_WHEN_DEALT
+      })
+    ).toEqual(
+      {
+        'showResults': false,
+        'showCustomHand': false,
+        'hideResultsWhenDealt': true,
         'showError': false,
         'error': '',
         'hand': [],
@@ -72,6 +93,7 @@ describe('deck reducer', () => {
       {
         'showResults': true,
         'showCustomHand': false,
+        'hideResultsWhenDealt': false,
         'showError': false,
         'error': '',
         'hand': [],
@@ -98,6 +120,7 @@ describe('deck reducer', () => {
       {
         'showResults': true,
         'showCustomHand': false,
+        'hideResultsWhenDealt': false,
         'showError': false,
         'hand': [],
         'cardsLeft': 0,
@@ -120,6 +143,7 @@ describe('deck reducer', () => {
       {
         'showResults': false,
         'showCustomHand': false,
+        'hideResultsWhenDealt': false,
         'showError': false,
         'cardsLeft': 0,
         'cardsLeft': 0,
@@ -141,6 +165,7 @@ describe('deck reducer', () => {
       {
         'showResults': false,
         'showCustomHand': false,
+        'hideResultsWhenDealt': false,
         'showError': false,
         'cardsLeft': 0,
         'cardsLeft': 0,
@@ -161,6 +186,7 @@ describe('deck reducer', () => {
       {
         'showResults': false,
         'showCustomHand': false,
+        'hideResultsWhenDealt': false,
         'showError': true,
         'cardsLeft': 0,
         'cardsLeft': 0,

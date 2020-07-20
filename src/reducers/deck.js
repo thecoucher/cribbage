@@ -3,6 +3,7 @@ import { ActionTypes as types } from '../constants'
 let defaultState = {
   'showResults': false,
   'showCustomHand': false,
+  'hideResultsWhenDealt': true,
   'showError': false,
   'error': '',
   'hand': [],
@@ -21,6 +22,11 @@ function deck(state = defaultState, action) {
         ...state,
         showCustomHand: !state.showCustomHand,
       }
+    case types.TOGGLE_HIDE_RESULTS_WHEN_DEALT:
+      return {
+        ...state,
+        hideResultsWhenDealt: !state.hideResultsWhenDealt,
+      }
     case types.GET_NEW_DECK:
       return {
         ...state,
@@ -36,6 +42,7 @@ function deck(state = defaultState, action) {
         hand: action.data.hand,
         cardsLeft: action.data.cardsLeft,
         showResults: action.data.showResults,
+        //showResults: action.showResults,
         showError: false,
         error: ''
       }

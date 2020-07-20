@@ -11,6 +11,12 @@ export function toggleShowCustomHand() {
   }
 }
 
+export function toggleHideResultsWhenDealt() {
+  return {
+    type: types.TOGGLE_HIDE_RESULTS_WHEN_DEALT
+  }
+}
+
 export function getNewDeck(deck_id, cardsLeft, showResults) {
   return {
     type: types.GET_NEW_DECK,

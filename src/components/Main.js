@@ -71,7 +71,7 @@ class Main extends Component {
               response.json()
             )
             .then(result => {
-              this.props.dispatch(actions.getNewCards(result.cards, result.remaining, false))
+              this.props.dispatch(actions.getNewCards(result.cards, result.remaining, !this.props.hideResultsWhenDealt))
             })
         })
         .catch((error => {
@@ -88,7 +88,7 @@ class Main extends Component {
           return response.json()
         })
         .then(result => {
-          this.props.dispatch(actions.getNewCards(result.cards, result.remaining, false))
+          this.props.dispatch(actions.getNewCards(result.cards, result.remaining, !this.props.hideResultsWhenDealt))
         })
         .catch((error => {
           console.error('A problem occurred fetching the hand: ', error)
@@ -242,6 +242,7 @@ class Main extends Component {
     const showCustomHand = this.props.showCustomHand
     const setShowResults = this.setShowResults
     const showResults = this.props.showResults
+    const hideResultsWhenDealt = this.props.hideResultsWhenDealt
     const onCustomHandChange = this.onCustomHandChange
     const showError = this.props.showError
     const error = this.props.error
@@ -252,7 +253,6 @@ class Main extends Component {
     } else {
       cards = []
     }
-
     let buttonText = ''
     if (cardsLeft === 52) {
       buttonText = 'Let\'s play'
@@ -295,6 +295,7 @@ export default connect((state) => {
   return {
     showResults: state.deck.showResults,
     showCustomHand: state.deck.showCustomHand,
+    hideResultsWhenDealt: state.deck.hideResultsWhenDealt,
     hand: state.deck.hand,
     cardsLeft: state.deck.cardsLeft,
     deck_id: state.deck.deck_id,

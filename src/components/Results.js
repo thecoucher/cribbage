@@ -75,7 +75,6 @@ class Results extends Component {
     let pairResults = []
     const { cards } = this.props
     const showResults = this.props.showResults
-
     let displayPairs, displaySums, displayRuns, displayFlush, displayNibs
     let sumsResult, flushResult, runsResult, nibsResult
     let fullHand = [...cards]
