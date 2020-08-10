@@ -13,7 +13,7 @@ const Options = (props) => {
           <input type='checkbox' checked={showCustomHand} onChange={props.setShowCustomHand} />Modify your cards
         </label>
         <label className='cribbage-checkbox'>
-          <input type='checkbox' checked={showResults} onChange={props.setShowResults} />{showResults ? 'Hide results' : 'Show results'}
+          <input type='checkbox' checked={showResults} onChange={props.setShowResults} />Show results
         </label>
       </div>
     )

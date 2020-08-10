@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { getPairs, getFifteenSums, getFlushes, getNibs, getRuns } from '.././cribbage.js'
-const uuid = require('uuid/v4')
+const { v4: uuidv4 } = require('uuid')
 
 class Results extends Component {
   // eslint-disable-next-line
@@ -93,7 +93,7 @@ class Results extends Component {
     // Only show results if the full hand has been dealt
     if (fullHand.length === 5) {
       displayPairs = <div>{pairResults.map(result =>
-        <div key={uuid()}>
+        <div key={uuidv4()}>
           <section className='cribbage-result' onMouseOver={() => this.addHighlight(result)} onMouseOut={() => this.removeHighlight(result)}>
             <div className='card-result'>{result.result.map(card =>
               <img className='result-card' src={card.image} key={card.code} alt={card.code} />
@@ -106,7 +106,7 @@ class Results extends Component {
       )}</div>
 
       displaySums = <div>{sumsResult.map(result =>
-        <div key={uuid()}>
+        <div key={uuidv4()}>
           <section className='cribbage-result' onMouseOver={() => this.addHighlight(result)} onMouseOut={() => this.removeHighlight(result)}>
             <div className='card-result'>{result.map(card =>
               <img className='result-card' src={card.image} key={card.code} alt={card.code} />
@@ -118,7 +118,7 @@ class Results extends Component {
       )}</div>
 
       displayRuns = <div>{runsResult.map(result =>
-        <div key={uuid()}>
+        <div key={uuidv4()}>
           <section className='cribbage-result' onMouseOver={() => this.addHighlight(result)} onMouseOut={() => this.removeHighlight(result)}>
             <div className='card-result'>{result.map(card =>
               <img className='result-card' src={card.image} key={card.code} alt={card.code} />

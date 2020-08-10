@@ -5,7 +5,7 @@ function About() {
   return (
     <React.Fragment>
       <div className="logo">
-        <img src={logo}></img>
+        <img src={logo} alt="Cribbage Logo" rel="noopener noreferrer"></img>
       </div>
       <div className="about">
         <h1>About the practice tool</h1>
@@ -13,7 +13,7 @@ function About() {
         There is also the ability to modify your hand to explore different scenarios by changing the card's value or suit in your hand or in the crib.
         </p>
         <br />
-        <p>You can see a complete set of rules for the game of Cribbage&nbsp;<a target="_blank" href="https://bicyclecards.com/how-to-play/cribbage/">&nbsp;here</a>.</p>
+        <p>You can see a complete set of rules for the game of Cribbage&nbsp;<a target="_blank" href="https://bicyclecards.com/how-to-play/cribbage/" rel="noopener noreferrer">&nbsp;here</a>.</p>
       </div>
     </React.Fragment>
   );

@@ -242,7 +242,6 @@ class Main extends Component {
     const showCustomHand = this.props.showCustomHand
     const setShowResults = this.setShowResults
     const showResults = this.props.showResults
-    const hideResultsWhenDealt = this.props.hideResultsWhenDealt
     const onCustomHandChange = this.onCustomHandChange
     const showError = this.props.showError
     const error = this.props.error
