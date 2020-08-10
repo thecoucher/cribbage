@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Cribbage Tester",
+  "name": "Test you Cribbage scoring ability",
   "icons": [
     {
       "src": "favicon.ico",
