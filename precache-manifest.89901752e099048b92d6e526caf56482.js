@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a3b116a9417e06538517f447de2eac48",
+    "revision": "8f0ea2496a93dba42046c7ea46abb716",
     "url": "/cribbage/index.html"
   },
   {
